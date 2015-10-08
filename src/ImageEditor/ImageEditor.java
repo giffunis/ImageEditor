@@ -2,9 +2,7 @@ package ImageEditor;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-
-import BarraHerramientas.Menu;
+import BarraBotones.Menu;
 
 
 public class ImageEditor {
@@ -12,7 +10,8 @@ public class ImageEditor {
 	Menu menu;
     JFrame marco;
     
-    ImageEditor(){
+    @SuppressWarnings("static-access")
+	ImageEditor(){
         marco = new JFrame("ImageEditor");
         marco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   // Para que funcione el botón de cerrar
         marco.setLayout(new BorderLayout());    // Crea un borde para que el contenido del panel y el marco, estén separados.
@@ -28,7 +27,8 @@ public class ImageEditor {
     }
         
     public static void main(String[] args) {
-        ImageEditor e1 = new ImageEditor();
+        @SuppressWarnings("unused")
+		ImageEditor e1 = new ImageEditor();
     }
     
 }
