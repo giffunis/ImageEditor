@@ -1,5 +1,5 @@
 package BarraHerramientas;
 
-public class BarraHerramientas {
+public class BarraHerramientas ex {
 
 }
