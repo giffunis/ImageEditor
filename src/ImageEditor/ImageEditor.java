@@ -1,6 +1,5 @@
 package ImageEditor;
 
-import java.io.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -47,10 +46,6 @@ public class ImageEditor {
     class VigilaBarraHerr extends MouseAdapter{
     	public void mousePressed(MouseEvent e){
     		Component aux = e.getComponent();
-    	}
-    	
-    	public void mouseRealeased(MouseEvent e){
-    		Component aux = e.getComponent();
     		Frame ventana = new Frame();
     		if(aux.getName().equals("Abrir imagen"))
     			areaTexto.append("Se ha pusado el botón de Abrir imágen \n");
@@ -59,6 +54,7 @@ public class ImageEditor {
     		else
     			areaTexto.append("Botón desconocido \n");
     	}
+    	
     }
     
     public static void main(String[] args) {
