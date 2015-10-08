@@ -50,9 +50,9 @@ public class ImageEditor {
     		Component aux = e.getComponent();
     		Frame ventana = new Frame();
     		if(aux.getName().equals("Abrir imagen"))
-    			areaTexto.append("Se ha pusado el botón de Abrir imágen \n");
+    			areaTexto.append("Se ha pusado el botón de Abrir imagen \n");
     		else if(aux.getName().equals("Guardar imagen"))
-    			areaTexto.append("Se ha pusado el botón de Guardar imágen \n");
+    			areaTexto.append("Se ha pusado el botón de Guardar imagen \n");
     		else
     			areaTexto.append("Botón desconocido \n");
     	}
