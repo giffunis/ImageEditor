@@ -22,12 +22,12 @@ public class ImageEditor {
         JFrame.setDefaultLookAndFeelDecorated(true);
         
         listaBotones = new JButton[listaNombres.length];
-        
         panelP = new JPanel();
         panelP.setLayout(new FlowLayout(FlowLayout.LEFT));
+        Icon icon = new ImageIcon("src/images/iconImage.png");
         
         for(int i = 0; i < listaNombres.length; i++){
-            listaBotones[i] = new JButton();
+            listaBotones[i] = new JButton(icon);
             listaBotones[i].setName(listaNombres[i]);
             listaBotones[i].setToolTipText(listaNombres[i]);
             listaBotones[i].setSelected(false);
