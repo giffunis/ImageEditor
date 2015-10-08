@@ -4,12 +4,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+import BarraHerramientas.Menu;
+
+
 public class ImageEditor {
 
-    JButton listaBotones[];
-    String listaNombres[] = {"Abrir imagen", "Guardar imagen"};
-    JTextArea areaTexto;    // Va a ser provisional.
-    JPanel panelP;
+	Menu menu;
     JFrame marco;
     
     ImageEditor(){
@@ -20,45 +20,13 @@ public class ImageEditor {
         marco.setIconImage(Toolkit.getDefaultToolkit().createImage("images/imageIcon.png"));
         //marco.pack();
         JFrame.setDefaultLookAndFeelDecorated(true);
+        menu = new Menu();
+        marco.add(menu.panelP,"North");
         
-        listaBotones = new JButton[listaNombres.length];
-        panelP = new JPanel();
-        panelP.setLayout(new FlowLayout(FlowLayout.LEFT));
-        Icon icon = new ImageIcon("src/images/iconImage.png");
-        
-        for(int i = 0; i < listaNombres.length; i++){
-            listaBotones[i] = new JButton();
-            listaBotones[i].setName(listaNombres[i]);
-            listaBotones[i].setToolTipText(listaNombres[i]);
-            listaBotones[i].setSelected(false);
-            listaBotones[i].addMouseListener(new VigilaBarraHerr());
-            panelP.add(listaBotones[i]);
-        }	// End for
-        	listaBotones[0].setIcon(new ImageIcon("src/images/open.png"));
-        	listaBotones[1].setIcon(new ImageIcon("src/images/save.png"));
-       
-        marco.add(panelP,"North");
-        
-        areaTexto = new JTextArea("");	// Provisional
-        marco.add(areaTexto,"Center");	// Provisional
         
         marco.setVisible(true);
     }
-    
-    class VigilaBarraHerr extends MouseAdapter{
-    	public void mousePressed(MouseEvent e){
-    		Component aux = e.getComponent();
-    		Frame ventana = new Frame();
-    		if(aux.getName().equals("Abrir imagen"))
-    			areaTexto.append("Se ha pusado el botón de Abrir imagen \n");
-    		else if(aux.getName().equals("Guardar imagen"))
-    			areaTexto.append("Se ha pusado el botón de Guardar imagen \n");
-    		else
-    			areaTexto.append("Botón desconocido \n");
-    	}
-    	
-    }
-    
+        
     public static void main(String[] args) {
         ImageEditor e1 = new ImageEditor();
     }
