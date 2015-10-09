@@ -18,7 +18,7 @@ public class Guardar extends JButton {
 	
 	class VigilaGuardar extends MouseAdapter{
 		public void mouseReleased(MouseEvent e){
-			JOptionPane.showMessageDialog(new JFrame(), "Ha pulsado el botón de guardar!");
+			JOptionPane.showMessageDialog(new JFrame(), "¡Ha pulsado el botón de guardar!");
 		}
 	}
 }
