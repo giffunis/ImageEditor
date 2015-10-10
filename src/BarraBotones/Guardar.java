@@ -8,7 +8,6 @@ public class Guardar extends JButton {
 	Icon icono = new ImageIcon("src/images/Save.png");
 	
 	Guardar(){
-		super();
 		this.setName("Guardar");
 		this.setToolTipText("Guardar");
 		this.setSelected(false);

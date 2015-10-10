@@ -4,12 +4,11 @@ import javax.swing.*;
 import java.awt.*;
 
 import BarraBotones.BarraBotones;
-import BarraBotones.Menu;
 
 
 public class ImageEditor {
 
-	Menu menu;
+	BarraBotones barra;
     JFrame marco;
     
     ImageEditor(){
@@ -18,12 +17,11 @@ public class ImageEditor {
         marco.setLayout(new BorderLayout());    // Crea un borde para que el contenido del panel y el marco, estén separados.
         marco.setSize(400,200);
         marco.setIconImage(Toolkit.getDefaultToolkit().createImage("images/imageIcon.png"));
-        //marco.pack();
         JFrame.setDefaultLookAndFeelDecorated(true);
-        //menu = new Menu();
-        //marco.add(menu.panelP,"North");
-        BarraBotones barra = new BarraBotones(this);
+        
+        barra = new BarraBotones();
         marco.add("North", barra);
+        
         marco.setVisible(true);
     }
         

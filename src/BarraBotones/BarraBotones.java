@@ -2,20 +2,16 @@ package BarraBotones;
 
 import javax.swing.*;
 
-import ImageEditor.ImageEditor;
-
 @SuppressWarnings("serial")
 public class BarraBotones extends JToolBar{
-	Abrir boton1;
-	Guardar boton2;
-	ImageEditor marco;
+	Abrir btn_abrir;
+	Guardar btn_guardar;
 	
-	public BarraBotones(ImageEditor marco){
-		this.marco = marco;
-		this.boton1 = new Abrir();
-		this.boton2 = new Guardar();
-		add(boton1);
-		add(boton2);
+	public BarraBotones(){
+		this.btn_abrir = new Abrir();
+		this.btn_guardar = new Guardar();
+		add(btn_abrir);
+		add(btn_guardar);
 	}
 
 }
