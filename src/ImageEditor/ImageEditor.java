@@ -1,6 +1,7 @@
 package ImageEditor;
 
 import java.awt.BorderLayout;
+import java.util.Vector;
 
 import javax.swing.*;
 
@@ -12,12 +13,17 @@ public class ImageEditor {
 	JFrame framePrincipal;
 	JPanel panelPrincipal;
 	BarraBotones barraBotonesPrincipal;
+	Vector<Imagenes> imagenes;
 	
 	//Constructor
 	ImageEditor(){
+		init_framePrincipal();
 		init_panelPrincipal();
 		init_barraBotonesPrincipal();
-		init_framePrincipal();
+		framePrincipal.add(panelPrincipal, BorderLayout.CENTER);	//	Añadimos panelPrincipal al framePrincipal
+		framePrincipal.add("North", barraBotonesPrincipal);	//	Añadimos barraPrincipal al framePrincipal
+		framePrincipal.pack();
+		framePrincipal.setVisible(true);
 	}
 	
 	void init_panelPrincipal(){
@@ -28,17 +34,14 @@ public class ImageEditor {
 	}
 	
 	void init_barraBotonesPrincipal(){
-		barraBotonesPrincipal = new BarraBotones();
+		barraBotonesPrincipal = new BarraBotones(this);
 	}
 	
 	void init_framePrincipal(){
 		JFrame.setDefaultLookAndFeelDecorated(true);
 		framePrincipal = new JFrame("ImageEditor");
 		framePrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		framePrincipal.add(panelPrincipal, BorderLayout.CENTER);	//	Añadimos panelPrincipal al framePrincipal
-		framePrincipal.add("North", barraBotonesPrincipal);	//	Añadimos barraPrincipal al framePrincipal
-		framePrincipal.pack();
-		framePrincipal.setVisible(true);
+		framePrincipal.setLayout(new BorderLayout());
 	}
 	
     public static void main(String[] args) {
