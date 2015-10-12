@@ -1,33 +1,40 @@
 package ImageEditor;
 
+import java.awt.BorderLayout;
+
 import javax.swing.*;
-import java.awt.*;
-
-import BarraBotones.BarraBotones;
-
 
 public class ImageEditor {
 
-	BarraBotones barra;
-    JFrame marco;
-    
-    ImageEditor(){
-        marco = new JFrame("ImageEditor");
-        marco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   // Para que funcione el botón de cerrar
-        marco.setLayout(new BorderLayout());    // Crea un borde para que el contenido del panel y el marco, estén separados.
-        marco.setSize(400,200);
-        marco.setIconImage(Toolkit.getDefaultToolkit().createImage("images/imageIcon.png"));
-        JFrame.setDefaultLookAndFeelDecorated(true);
-        
-        barra = new BarraBotones();
-        marco.add("North", barra);
-        
-        marco.setVisible(true);
-    }
-        
+	//	Declaración de variables
+	JFrame framePrincipal;
+	JPanel panelPrincipal;
+	
+	//Constructor
+	ImageEditor(){
+		init_panelPrincipal();
+		init_framePrincipal();
+	}
+	
+	void init_panelPrincipal(){
+		JLabel etiqueta = new JLabel("ImageEditor.");
+		panelPrincipal = new JPanel();
+		panelPrincipal.setBorder(BorderFactory.createEmptyBorder(30,30,30,30));
+		panelPrincipal.add(etiqueta);
+	}
+	
+	void init_framePrincipal(){
+		JFrame.setDefaultLookAndFeelDecorated(true);
+		framePrincipal = new JFrame("ImageEditor");
+		framePrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		framePrincipal.add(panelPrincipal, BorderLayout.CENTER);
+		framePrincipal.pack();
+		framePrincipal.setVisible(true);
+	}
+	
     public static void main(String[] args) {
-        @SuppressWarnings("unused")
-		ImageEditor e1 = new ImageEditor();
+    	@SuppressWarnings("unused")
+		ImageEditor programa = new ImageEditor();
     }
     
 }
