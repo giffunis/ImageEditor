@@ -3,7 +3,6 @@ package ImageEditor;
 import java.awt.BorderLayout;
 import java.awt.image.BufferedImage;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -25,6 +24,7 @@ public class Imagenes {
 		internalFrame.pack();
 		internalFrame.setVisible(true);
 		this.api.panelPrincipal.add(internalFrame);
+		this.api.imagenes.addElement(this);
 	}
 	
 	void init_internalFrame(){
