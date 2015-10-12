@@ -4,28 +4,34 @@ import java.awt.BorderLayout;
 import java.awt.image.BufferedImage;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class Imagenes {
-	JFrame marco;
+
 	JPanel panel;
 	BufferedImage imagenReal;
+	ImageEditor api;
+	JInternalFrame internalFrame;
 	
-	public Imagenes(BufferedImage imagenReal){
+
+	public Imagenes(BufferedImage imagenReal, ImageEditor api){
+		this.api = api;
 		this.imagenReal = imagenReal;
-		init_marco();
+		init_internalFrame();
 		init_panel();
-		marco.add(panel, BorderLayout.CENTER);	
-		marco.pack();
-		marco.setVisible(true);
+		internalFrame.add(panel, BorderLayout.CENTER);	
+		internalFrame.pack();
+		internalFrame.setVisible(true);
+		this.api.panelPrincipal.add(internalFrame);
 	}
 	
-	void init_marco(){
-		JFrame.setDefaultLookAndFeelDecorated(true);
-		marco = new JFrame("imagen1");
-		marco.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		marco.setLayout(new BorderLayout());
+	void init_internalFrame(){
+		//JInternalFrame.setDefaultLookAndFeelDecorated(true);
+		internalFrame = new JInternalFrame("imagen1");
+		internalFrame.setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
+		internalFrame.setLayout(new BorderLayout());
 	}
 	
 	void init_panel(){

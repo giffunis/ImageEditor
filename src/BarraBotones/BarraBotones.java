@@ -37,7 +37,7 @@ public class BarraBotones extends JToolBar{
 		ProcesamientoImagen objProcesamiento =new ProcesamientoImagen();
 		BufferedImage auxImage;
 		auxImage = objProcesamiento.abrirImagen();
-		Imagenes imagenCompleta = new Imagenes(auxImage);
+		Imagenes imagenCompleta = new Imagenes(auxImage,api);
 		api.imagenes.add(imagenCompleta);
 		
 		
