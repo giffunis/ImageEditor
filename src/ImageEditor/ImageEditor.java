@@ -23,7 +23,7 @@ public class ImageEditor {
 		init_barraBotonesPrincipal();
 		framePrincipal.add(panelPrincipal, BorderLayout.CENTER);	//	Añadimos panelPrincipal al framePrincipal
 		framePrincipal.add("North", barraBotonesPrincipal);	//	Añadimos barraPrincipal al framePrincipal
-		framePrincipal.pack();
+		framePrincipal.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		framePrincipal.setVisible(true);
 	}
 	
