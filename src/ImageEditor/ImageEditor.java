@@ -17,6 +17,7 @@ public class ImageEditor {
 	
 	//Constructor
 	ImageEditor(){
+		imagenes = new Vector<Imagenes>(0);
 		init_framePrincipal();
 		init_panelPrincipal();
 		init_barraBotonesPrincipal();

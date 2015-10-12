@@ -24,7 +24,7 @@ public class Imagenes {
 	void init_marco(){
 		JFrame.setDefaultLookAndFeelDecorated(true);
 		marco = new JFrame("imagen1");
-		marco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		marco.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		marco.setLayout(new BorderLayout());
 	}
 	
