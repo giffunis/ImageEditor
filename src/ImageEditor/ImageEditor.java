@@ -13,7 +13,7 @@ public class ImageEditor {
 	JFrame framePrincipal;
 	JPanel panelPrincipal;
 	BarraBotones barraBotonesPrincipal;
-	Vector<Imagenes> imagenes;
+	public Vector<Imagenes> imagenes;
 	
 	//Constructor
 	ImageEditor(){

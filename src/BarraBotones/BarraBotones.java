@@ -1,8 +1,12 @@
 package BarraBotones;
 
+import java.awt.image.BufferedImage;
+
 import javax.swing.*;
 
+import Funciones.ProcesamientoImagen;
 import ImageEditor.ImageEditor;
+import ImageEditor.Imagenes;
 
 @SuppressWarnings("serial")
 public class BarraBotones extends JToolBar{
@@ -30,7 +34,14 @@ public class BarraBotones extends JToolBar{
 	}
 	
 	private void btnAbrirActionPerformed(java.awt.event.ActionEvent evt) {
-		JOptionPane.showMessageDialog(new JFrame(), "¡Ha pulsado el botón abrir!");
+		//JOptionPane.showMessageDialog(new JFrame(), "¡Ha pulsado el botón abrir!");
+		ProcesamientoImagen objProcesamiento =new ProcesamientoImagen();
+		BufferedImage auxImage;
+		auxImage = objProcesamiento.abrirImagen();
+		Imagenes imagenCompleta = new Imagenes(auxImage);
+		api.imagenes.add(imagenCompleta);
+		
+		
 	}
 	
 

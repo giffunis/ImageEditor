@@ -12,7 +12,7 @@ public class Imagenes {
 	JPanel panel;
 	BufferedImage imagenReal;
 	
-	Imagenes(BufferedImage imagenReal){
+	public Imagenes(BufferedImage imagenReal){
 		this.imagenReal = imagenReal;
 		init_marco();
 		init_panel();
