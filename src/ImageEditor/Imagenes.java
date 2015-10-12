@@ -23,13 +23,12 @@ public class Imagenes {
 		internalFrame.add(panel, BorderLayout.CENTER);	
 		internalFrame.pack();
 		internalFrame.setVisible(true);
-		this.api.panelPrincipal.add(internalFrame);
+		this.api.desktopPane.add(internalFrame);
 		this.api.imagenes.addElement(this);
 	}
 	
 	void init_internalFrame(){
-		//JInternalFrame.setDefaultLookAndFeelDecorated(true);
-		internalFrame = new JInternalFrame("imagen1");
+		internalFrame = new JInternalFrame("imagen1",true,true,true,true);
 		internalFrame.setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
 		internalFrame.setLayout(new BorderLayout());
 	}

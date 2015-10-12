@@ -11,7 +11,7 @@ public class ImageEditor {
 
 	//	Declaración de variables
 	JFrame framePrincipal;
-	JPanel panelPrincipal;
+	JDesktopPane desktopPane;
 	BarraBotones barraBotonesPrincipal;
 	public Vector<Imagenes> imagenes;
 	
@@ -19,19 +19,16 @@ public class ImageEditor {
 	ImageEditor(){
 		imagenes = new Vector<Imagenes>(0);
 		init_framePrincipal();
-		init_panelPrincipal();
+		init_desktopPanel();
 		init_barraBotonesPrincipal();
-		framePrincipal.add(panelPrincipal, BorderLayout.CENTER);	//	Añadimos panelPrincipal al framePrincipal
+		framePrincipal.add(desktopPane, BorderLayout.CENTER);	//	Añadimos panelPrincipal al framePrincipal
 		framePrincipal.add("North", barraBotonesPrincipal);	//	Añadimos barraPrincipal al framePrincipal
 		framePrincipal.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		framePrincipal.setVisible(true);
 	}
 	
-	void init_panelPrincipal(){
-		JLabel etiqueta = new JLabel("ImageEditor.");
-		panelPrincipal = new JPanel();
-		panelPrincipal.setBorder(BorderFactory.createEmptyBorder(30,30,30,30));
-		panelPrincipal.add(etiqueta);
+	void init_desktopPanel(){
+		desktopPane = new JDesktopPane();
 	}
 	
 	void init_barraBotonesPrincipal(){
