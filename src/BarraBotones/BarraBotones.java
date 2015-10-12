@@ -34,7 +34,6 @@ public class BarraBotones extends JToolBar{
 	}
 	
 	private void btnAbrirActionPerformed(java.awt.event.ActionEvent evt) {
-		//JOptionPane.showMessageDialog(new JFrame(), "¡Ha pulsado el botón abrir!");
 		ProcesamientoImagen objProcesamiento =new ProcesamientoImagen();
 		BufferedImage auxImage;
 		auxImage = objProcesamiento.abrirImagen();
