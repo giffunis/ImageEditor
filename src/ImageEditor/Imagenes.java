@@ -28,7 +28,7 @@ public class Imagenes {
 	}
 	
 	void init_internalFrame(){
-		internalFrame = new JInternalFrame("imagen1",true,true,true,true);
+		internalFrame = new JInternalFrame("imagen"+(api.imagenes.size() + 1) ,true,true,true,true);
 		internalFrame.setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
 		internalFrame.setLayout(new BorderLayout());
 	}

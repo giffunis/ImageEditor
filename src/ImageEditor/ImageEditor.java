@@ -1,6 +1,7 @@
 package ImageEditor;
 
 import java.awt.BorderLayout;
+//import java.awt.GridLayout;
 import java.util.Vector;
 
 import javax.swing.*;
@@ -29,6 +30,7 @@ public class ImageEditor {
 	
 	void init_desktopPanel(){
 		desktopPane = new JDesktopPane();
+		//desktopPane.setLayout(new GridLayout(3,3));
 	}
 	
 	void init_barraBotonesPrincipal(){
