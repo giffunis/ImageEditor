@@ -24,6 +24,7 @@ public class Imagenes {
 		internalFrame.pack();
 		internalFrame.setVisible(true);
 		this.api.desktopPane.add(internalFrame);
+		//this.api.desktopPane.validate();
 		this.api.imagenes.addElement(this);
 	}
 	

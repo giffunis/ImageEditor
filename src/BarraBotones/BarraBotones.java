@@ -13,11 +13,15 @@ public class BarraBotones extends JToolBar{
 	
 	ImageEditor api;
 	JButton btnAbrir;
+	JButton btnEscalaGrises;
 	
 	public BarraBotones(ImageEditor api){
 		this.api = api;
 		init_btnAbrir();
+		init_btnEscalaGrises();
 	}
+	
+	//	BTN ABRIR
 	
 	void init_btnAbrir(){
 		btnAbrir = new JButton();
@@ -39,8 +43,31 @@ public class BarraBotones extends JToolBar{
 		auxImage = objProcesamiento.abrirImagen();
 		@SuppressWarnings("unused")
 		Imagenes imagenCompleta = new Imagenes(auxImage,api);
-//		api.imagenes.add(imagenCompleta);
 	}
+	
+	// BTN ESCALA DE GRISES
+	
+	void init_btnEscalaGrises(){
+		btnEscalaGrises = new JButton();
+		btnEscalaGrises.setName("Escala de grises");
+		btnEscalaGrises.setToolTipText("Escala de grises");
+		btnEscalaGrises.setSelected(false);
+		btnEscalaGrises.setIcon(new ImageIcon("src/images/EscalaGrises.png"));
+//		btnAbrir.addActionListener(new java.awt.event.ActionListener() {
+//            public void actionPerformed(java.awt.event.ActionEvent evt) {
+//                btnEscalaGrisesActionPerformed(evt);
+//            }
+//        });
+		add(btnEscalaGrises);
+	}
+	
+//	private void btnEscalaGrisesActionPerformed(java.awt.event.ActionEvent evt) {
+//		ProcesamientoImagen objProcesamiento =new ProcesamientoImagen();
+//		BufferedImage auxImage;
+//		auxImage = objProcesamiento.abrirImagen();
+//		@SuppressWarnings("unused")
+//		Imagenes imagenCompleta = new Imagenes(auxImage,api);
+//	}
 	
 
 }
