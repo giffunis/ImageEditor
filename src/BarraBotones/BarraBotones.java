@@ -16,10 +16,12 @@ public class BarraBotones extends JToolBar{
 	ImageEditor api;
 	JButton btnAbrir;
 	JButton btnEscalaGrises;
+	JButton btnGuardar;
 	
 	public BarraBotones(ImageEditor api){
 		this.api = api;
 		init_btnAbrir();
+		init_btnGuardar();
 		init_btnEscalaGrises();
 	}
 	
@@ -45,6 +47,41 @@ public class BarraBotones extends JToolBar{
 		auxImage = objProcesamiento.abrirImagen();
 		@SuppressWarnings("unused")
 		Imagenes imagenCompleta = new Imagenes(auxImage,api);
+	}
+	
+
+//---------------------------------------- GUARDAR ---------------------------------------------
+
+	void init_btnGuardar(){
+		btnGuardar = new JButton();
+		btnGuardar.setName("Guardar");
+		btnGuardar.setToolTipText("Guardar");
+		btnGuardar.setSelected(false);
+		btnGuardar.setIcon(new ImageIcon("src/images/save.png"));
+		btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
+		add(btnGuardar);
+	}
+	
+	private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {
+		JInternalFrame internalFrame = api.desktopPane.getSelectedFrame();
+		String aux = internalFrame.getTitle();
+		int pos = 0;
+		for(int i = 0; i < api.imagenes.size(); i++){
+			if(aux == api.imagenes.get(i).internalFrame.getTitle()){
+				pos = i;
+			}
+		}
+//		JOptionPane.showMessageDialog(new JFrame(), pos);
+		ProcesamientoImagen imagenSalida = new ProcesamientoImagen();
+		
+		
+		
+		imagenSalida.imageActual = api.imagenes.get(pos).imagenReal;
+		imagenSalida.guardarImagen();
 	}
 	
 //--------------------------------------BTN ESCALA DE GRISES----------------------------------
@@ -87,9 +124,7 @@ public class BarraBotones extends JToolBar{
 		Imagenes imagenCompleta = new Imagenes(imagenSalida.imageActual,api);
 	}
 
-//---------------------------------------- GUARDAR ---------------------------------------------
-
-	void init_btnGuardar(){
-		
-	}
+	
+	
+	
 }
