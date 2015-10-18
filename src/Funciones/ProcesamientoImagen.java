@@ -5,6 +5,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class ProcesamientoImagen {
@@ -47,13 +48,20 @@ public class ProcesamientoImagen {
         JFileChooser selector=new JFileChooser();
         //Le damos un título
         selector.setDialogTitle("Guardar como...");
-        //Filtramos los tipos de archivos
-        //FileNameExtensionFilter filtroImagen = new FileNameExtensionFilter("JPG & GIF & BMP & PNG", "jpg", "gif", "bmp", "png");
-        selector.setFileFilter(new FileNameExtensionFilter("JPG", "jpg"));
-        	//selector.setFileFilter(new FileNameExtensionFilter("PNG", "png"));
-        //selector.setFileFilter(new FileNameExtensionFilter("GIF", "gif"));
-        //selector.setFileFilter(new FileNameExtensionFilter("BMP", "bmp"));
-       // selector.setFileFilter(filtroImagen);
+        
+        
+        FileFilter filter1 = new ExtensionFileFilter("JPG", new String[] { "JPG"});
+        FileFilter filter2 = new ExtensionFileFilter("GIF", new String[] { "GIF"});
+        FileFilter filter3 = new ExtensionFileFilter("BMP", new String[] { "BMP"});
+        FileFilter filter4 = new ExtensionFileFilter("PNG", new String[] { "PNG"});
+        
+        selector.setAcceptAllFileFilterUsed(false);
+        selector.addChoosableFileFilter(filter1);
+        selector.addChoosableFileFilter(filter2);
+        selector.addChoosableFileFilter(filter3);
+        selector.addChoosableFileFilter(filter4);
+        
+        
         //Abrimos el cuadro de diálog
         int flag=selector.showSaveDialog(null);
         //Comprobamos que pulse en aceptar
@@ -61,25 +69,25 @@ public class ProcesamientoImagen {
             try {
             	String name = selector.getSelectedFile().getAbsolutePath();
             	String name1 = selector.getFileFilter().getDescription();
-            	String ext = ".png";
+            	String ext = "png";
             	if (name1.equals("JPG")){
-                    ext = ".jpg";
-                    name = name + ext;
+                    ext = "jpg";
+                    name = name +"."+ ext;
                     System.out.println(name);
                 }
                 else if(name1.equals("PNG")){
-                    ext = ".png";
-                    name = name + ext;
+                    ext = "png";
+                    name = name +"."+ ext;
                     System.out.println(name);
                 }
                 else if(name1.equals("GIF")){
-                    ext = ".gif";
-                    name = name + ext;
+                    ext = "gif";
+                    name = name +"."+ ext;
                     System.out.println(name);
                 }
                 else if(name1.equals("BMP")){
-                    ext = ".bmp";
-                    name = name + ext;
+                    ext = "bmp";
+                    name = name +"."+ ext;
                     System.out.println(name);
                 }
                 else if(name1.equals("All Files")){     
@@ -89,7 +97,7 @@ public class ProcesamientoImagen {
                 	JOptionPane.showMessageDialog(new JFrame(), "Error guardando la imagen");
                 }
             	try{
-            		ImageIO.write(imageActual, "jpg", new File(name));
+            		ImageIO.write(imageActual, ext, new File(name));
             	} catch(Exception e){
             		JOptionPane.showMessageDialog(new JFrame(), "Error guardando la imagen");
             	}
