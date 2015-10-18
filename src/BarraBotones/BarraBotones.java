@@ -1,6 +1,8 @@
 package BarraBotones;
 
 import java.awt.image.BufferedImage;
+import java.awt.image.ColorModel;
+import java.awt.image.WritableRaster;
 
 import javax.swing.*;
 
@@ -21,7 +23,7 @@ public class BarraBotones extends JToolBar{
 		init_btnEscalaGrises();
 	}
 	
-	//	BTN ABRIR
+//--------------------------------------BTN ABRIR------------------------------------------
 	
 	void init_btnAbrir(){
 		btnAbrir = new JButton();
@@ -45,7 +47,7 @@ public class BarraBotones extends JToolBar{
 		Imagenes imagenCompleta = new Imagenes(auxImage,api);
 	}
 	
-	// BTN ESCALA DE GRISES
+//--------------------------------------BTN ESCALA DE GRISES----------------------------------
 	
 	void init_btnEscalaGrises(){
 		btnEscalaGrises = new JButton();
@@ -61,6 +63,13 @@ public class BarraBotones extends JToolBar{
 		add(btnEscalaGrises);
 	}
 	
+	static BufferedImage deepCopy(BufferedImage bi) {
+        ColorModel cm = bi.getColorModel();
+        boolean isAlphaPremultiplied = cm.isAlphaPremultiplied();
+        WritableRaster raster = bi.copyData(null);
+        return new BufferedImage(cm, raster, isAlphaPremultiplied, null);
+    }
+	
 	private void btnEscalaGrisesActionPerformed(java.awt.event.ActionEvent evt) {
 		JInternalFrame internalFrame = api.desktopPane.getSelectedFrame();
 		String aux = internalFrame.getTitle();
@@ -71,13 +80,16 @@ public class BarraBotones extends JToolBar{
 			}
 		}
 //		JOptionPane.showMessageDialog(new JFrame(), pos);
-		ProcesamientoImagen imagenEntrada = new ProcesamientoImagen();
-		imagenEntrada.imageActual = api.imagenes.get(pos).imagenReal;
-		BufferedImage imagenSalida = new BufferedImage(imagenEntrada.imageActual.getWidth(),imagenEntrada.imageActual.getHeight(),imagenEntrada.imageActual.getType());
-		imagenSalida = imagenEntrada.escalaGrises();
+		ProcesamientoImagen imagenSalida = new ProcesamientoImagen();
+		imagenSalida.imageActual = deepCopy(api.imagenes.get(pos).imagenReal);
+		imagenSalida.imageActual = imagenSalida.escalaGrises();	
 		@SuppressWarnings("unused")
-		Imagenes imagenCompleta = new Imagenes(imagenSalida,api);
+		Imagenes imagenCompleta = new Imagenes(imagenSalida.imageActual,api);
 	}
-	
 
+//---------------------------------------- GUARDAR ---------------------------------------------
+
+	void init_btnGuardar(){
+		
+	}
 }
