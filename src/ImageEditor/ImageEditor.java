@@ -12,7 +12,7 @@ public class ImageEditor {
 
 	//	Declaración de variables
 	JFrame framePrincipal;
-	JDesktopPane desktopPane;
+	public JDesktopPane desktopPane;
 	BarraBotones barraBotonesPrincipal;
 	public Vector<Imagenes> imagenes;
 	

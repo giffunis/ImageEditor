@@ -10,9 +10,9 @@ import javax.swing.JPanel;
 public class Imagenes {
 
 	JPanel panel;
-	BufferedImage imagenReal;
+	public BufferedImage imagenReal;
 	ImageEditor api;
-	JInternalFrame internalFrame;
+	public JInternalFrame internalFrame;
 	
 
 	public Imagenes(BufferedImage imagenReal, ImageEditor api){
@@ -24,7 +24,6 @@ public class Imagenes {
 		internalFrame.pack();
 		internalFrame.setVisible(true);
 		this.api.desktopPane.add(internalFrame);
-		//this.api.desktopPane.validate();
 		this.api.imagenes.addElement(this);
 	}
 	
