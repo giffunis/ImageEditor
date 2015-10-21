@@ -110,7 +110,7 @@ public class ProcesamientoImagen {
      
     public BufferedImage escalaGrises(){
         //Variables que almacenarán los píxeles
-        int mediaPixel,colorSRGB;
+        int gris,colorSRGB;
         Color colorAux;
                  
         //Recorremos la imagen píxel a píxel
@@ -119,9 +119,9 @@ public class ProcesamientoImagen {
                 //Almacenamos el color del píxel
                 colorAux=new Color(this.imageActual.getRGB(i, j));
                 //Calculamos la media de los tres canales (rojo, verde, azul)
-                mediaPixel=(int)((colorAux.getRed()+colorAux.getGreen()+colorAux.getBlue())/3);
+                gris =(int)(0.222*colorAux.getRed()+0.707*colorAux.getGreen()+0.071*colorAux.getBlue());
                 //Cambiamos a formato sRGB
-                colorSRGB=(mediaPixel << 16) | (mediaPixel << 8) | mediaPixel;
+                colorSRGB=(gris << 16) | (gris << 8) | gris;
                 //Asignamos el nuevo valor al BufferedImage
                 imageActual.setRGB(i, j,colorSRGB);
             }
