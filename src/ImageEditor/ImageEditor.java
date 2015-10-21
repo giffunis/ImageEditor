@@ -38,7 +38,7 @@ public class ImageEditor {
 	}
 	
 	void init_framePrincipal(){
-		JFrame.setDefaultLookAndFeelDecorated(true);
+		JFrame.setDefaultLookAndFeelDecorated(false);
 		framePrincipal = new JFrame("ImageEditor");
 		framePrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		framePrincipal.setLayout(new BorderLayout());
