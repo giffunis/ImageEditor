@@ -7,6 +7,7 @@ import java.awt.image.WritableRaster;
 import javax.swing.*;
 
 import Funciones.ProcesamientoImagen;
+import Histograma.Histograma;
 import ImageEditor.ImageEditor;
 import ImageEditor.Imagenes;
 
@@ -17,12 +18,14 @@ public class BarraBotones extends JToolBar{
 	JButton btnAbrir;
 	JButton btnEscalaGrises;
 	JButton btnGuardar;
+	JButton btnHistogramaAbsoluto;
 	
 	public BarraBotones(ImageEditor api){
 		this.api = api;
 		init_btnAbrir();
 		init_btnGuardar();
 		init_btnEscalaGrises();
+		init_btnHistogramaAbsoluto();
 	}
 	
 //--------------------------------------BTN ABRIR------------------------------------------
@@ -124,7 +127,28 @@ public class BarraBotones extends JToolBar{
 		Imagenes imagenCompleta = new Imagenes(imagenSalida.imageActual,api);
 	}
 
+//	-----------------------------btnHistogramaAbsoluto	
 	
+	void init_btnHistogramaAbsoluto(){
+		
+		btnHistogramaAbsoluto = new JButton();
+		btnHistogramaAbsoluto.setName("Histograma absoluto");
+		btnHistogramaAbsoluto.setToolTipText("Histograma Absoluto");
+		btnHistogramaAbsoluto.setSelected(false);
+		btnHistogramaAbsoluto.setIcon(new ImageIcon("src/images/EscalaGrises.png"));
+		
+		btnHistogramaAbsoluto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHistogramaAbsolutoActionPerformed(evt);
+            }
+        });
+		add(btnHistogramaAbsoluto);
+	}
 	
+	private void btnHistogramaAbsolutoActionPerformed(java.awt.event.ActionEvent evt) {
+		Histograma histoGrafo = new Histograma();
+		JOptionPane.showMessageDialog(new JFrame(), "Funciona");
+
+	}
 	
 }
