@@ -9,6 +9,7 @@ import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class ProcesamientoImagen {
+	static final int SIZE = 256;
 	//Imagen actual que se ha cargado
 	public BufferedImage imageActual;
      
@@ -129,4 +130,20 @@ public class ProcesamientoImagen {
         //Retornamos la imagen
         return imageActual;
     }
+    
+    public int[] histograma(){
+    	int aux = 0;
+    	int[] hist = new int[ProcesamientoImagen.SIZE];
+    	for(int i = 0; i < ProcesamientoImagen.SIZE;i++)
+    		hist[i] = 0;
+
+    	for( int i = 0; i < imageActual.getWidth(); i++ )
+            for( int j = 0; j < imageActual.getHeight(); j++ ){
+                aux = this.imageActual.getRGB(i, j);
+                hist[aux] = hist[aux] + 1;
+            }
+    	
+    	return hist;
+    }
+    
 }
