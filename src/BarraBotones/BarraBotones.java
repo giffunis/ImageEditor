@@ -3,15 +3,19 @@ package BarraBotones;
 import java.awt.image.BufferedImage;
 import java.awt.image.ColorModel;
 import java.awt.image.WritableRaster;
+import java.util.Vector;
 
 import javax.swing.*;
 
+import Funciones.Histograma;
 import Funciones.ProcesamientoImagen;
 import ImageEditor.ImageEditor;
 import ImageEditor.Imagenes;
 
 @SuppressWarnings("serial")
 public class BarraBotones extends JToolBar{
+	
+	static final String HISTO_ABSO = "Histograma Absoluto";
 	
 	ImageEditor api;
 	JButton btnAbrir;
@@ -145,9 +149,20 @@ public class BarraBotones extends JToolBar{
 	}
 	
 	private void btnHistogramaAbsolutoActionPerformed(java.awt.event.ActionEvent evt) {
-
-		JOptionPane.showMessageDialog(new JFrame(),"histograma absoluto");
+		JInternalFrame internalFrame = api.desktopPane.getSelectedFrame();
+		String aux = internalFrame.getTitle();
+		int pos = 0;
+		for(int i = 0; i < api.imagenes.size(); i++){
+			if(aux == api.imagenes.get(i).internalFrame.getTitle()){
+				pos = i;
+			}
+		}
+		ProcesamientoImagen imagenSalida = new ProcesamientoImagen();
+		imagenSalida.imageActual = api.imagenes.get(pos).imagenReal;
+		Vector<Integer> vectorHist = imagenSalida.histogramaAbsoluto();
 		
+		@SuppressWarnings("unused")
+		Histograma histo = new Histograma(this.api,HISTO_ABSO + ": imagen " + (pos + 1),vectorHist);
 	}
 	
 }

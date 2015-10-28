@@ -8,6 +8,10 @@ import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+
+
+import java.util.Vector;
+
 public class ProcesamientoImagen {
 	static final int SIZE = 256;
 	//Imagen actual que se ha cargado
@@ -131,19 +135,22 @@ public class ProcesamientoImagen {
         return imageActual;
     }
     
-    public int[] histograma(){
-    	int aux = 0;
-    	int[] hist = new int[ProcesamientoImagen.SIZE];
-    	for(int i = 0; i < ProcesamientoImagen.SIZE;i++)
-    		hist[i] = 0;
-
+    public Vector<Integer> histogramaAbsoluto(){
+    
+    	Vector<Integer> hist = new Vector<Integer>(0);
+    	Color aux;
+    	
+    	for(int i = 0; i < SIZE; i++)
+    		hist.addElement(0);
+    	
     	for( int i = 0; i < imageActual.getWidth(); i++ )
             for( int j = 0; j < imageActual.getHeight(); j++ ){
-                aux = this.imageActual.getRGB(i, j);
-                hist[aux] = hist[aux] + 1;
+                aux = new Color(this.imageActual.getRGB(i, j));
+                hist.set(aux.getRed(),hist.get(aux.getRed()) + 1);
             }
     	
     	return hist;
     }
+    
     
 }
