@@ -2,10 +2,12 @@ package MenuBar;
 
 import java.awt.image.BufferedImage;
 
+import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 
 import Funciones.ProcesamientoImagen;
 import ImageEditor.ImageEditor;
@@ -14,17 +16,18 @@ import ImageEditor.Imagenes;
 @SuppressWarnings("serial")
 public class BarraMenu extends JMenuBar {
 	ImageEditor api;
-	JMenu archivo;
+	JMenu archivo,ver;
 	JMenuItem menuItem;
 
 	public BarraMenu(ImageEditor api){
 		this.api = api;
-		initMenu();
+		initArchivo();
+		initVer();
 	}
 	
-	// -------------- Inicializando el Menu file ----------------------
+	// -------------- Inicializando el Archivo ----------------------
 	
-	void initMenu(){
+	void initArchivo(){
 		archivo = new JMenu("Archivo");
 		initAbrir();
 		initGuardar();
@@ -69,18 +72,54 @@ public class BarraMenu extends JMenuBar {
 		}
 //		JOptionPane.showMessageDialog(new JFrame(), pos);
 		ProcesamientoImagen imagenSalida = new ProcesamientoImagen();
-		
-		
-		
 		imagenSalida.imageActual = api.imagenes.get(pos).imagenReal;
 		imagenSalida.guardarImagen();
 	}
 	
 	
+// ------------------------------------------MENU VER ----------------------
+//	Aquí van el Brillo y contraste
+//	Histograma absoluto
+//	Histograma acumulativo.
+//	Entropía
+	void initVer(){
+		ver = new JMenu("Ver");
+		initHistAbso();
+		add(ver);
+	}
+	
+	void initHistAbso(){
+		menuItem = new JMenuItem("Histograma Absoluto");
+		menuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHistoAbsoActionPerformed(evt);
+            }
+        });
+		ver.add(menuItem);
+	}
+	
+	private void btnHistoAbsoActionPerformed(java.awt.event.ActionEvent evt) {
+		JOptionPane.showMessageDialog(new JFrame(),"histograma absoluto");
+	}
 	
 	
+// -------------------------------- MENU OPCIONES ----------	
+//	Duplicar imágen
+//	Escala de grises
+//	Copiar selección
+//	Dibujar recta
+//	Vecindad
 	
 	
+// ---------------------------------MENU TRANSFORMACIONES--------------------
+//	Lineales
+//	Negativizar
+//	No lineales
+//	Muestrear
+//	Cuantizar
+//	Histograma
+//	Binarizar
 	
+
 	
 }

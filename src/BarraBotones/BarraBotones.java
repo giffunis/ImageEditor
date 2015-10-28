@@ -7,7 +7,6 @@ import java.awt.image.WritableRaster;
 import javax.swing.*;
 
 import Funciones.ProcesamientoImagen;
-import Histograma.Histograma;
 import ImageEditor.ImageEditor;
 import ImageEditor.Imagenes;
 
@@ -146,9 +145,9 @@ public class BarraBotones extends JToolBar{
 	}
 	
 	private void btnHistogramaAbsolutoActionPerformed(java.awt.event.ActionEvent evt) {
-		Histograma histoGrafo = new Histograma();
-		JOptionPane.showMessageDialog(new JFrame(), "Funciona");
 
+		JOptionPane.showMessageDialog(new JFrame(),"histograma absoluto");
+		
 	}
 	
 }
