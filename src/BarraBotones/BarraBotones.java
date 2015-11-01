@@ -7,6 +7,8 @@ import java.util.Vector;
 
 import javax.swing.*;
 
+import org.jfree.chart.ChartPanel;
+
 import Funciones.Histograma;
 import Funciones.ProcesamientoImagen;
 import ImageEditor.ImageEditor;
@@ -161,8 +163,16 @@ public class BarraBotones extends JToolBar{
 		imagenSalida.imageActual = api.imagenes.get(pos).imagenReal;
 		Vector<Integer> vectorHist = imagenSalida.histogramaAbsoluto();
 		
-		@SuppressWarnings("unused")
 		Histograma histo = new Histograma(this.api,HISTO_ABSO + ": imagen " + (pos + 1),vectorHist);
+		
+		ChartPanel panel = new ChartPanel(histo.grafica);
+		JInternalFrame ventana = new JInternalFrame(HISTO_ABSO + ": imagen " + (pos + 1),true,true,true,true);
+		ventana.setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
+		ventana.add(panel);
+		ventana.pack();
+		ventana.setVisible(true);
+		this.api.desktopPane.add(ventana);
+		
 	}
 	
 }

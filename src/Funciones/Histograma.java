@@ -4,7 +4,9 @@ import java.util.Vector;
 
 import javax.swing.JInternalFrame;
 
+import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 
 import ImageEditor.ImageEditor;
@@ -15,7 +17,7 @@ public class Histograma extends JInternalFrame {
 	ImageEditor api;
 	String nombre;
 	Vector<Integer> hist;
-	JFreeChart grafica;
+	public JFreeChart grafica;
 	DefaultCategoryDataset datos = new DefaultCategoryDataset();
 	
 	public Histograma(ImageEditor api, String nombre_histo, Vector<Integer> hist){
@@ -32,5 +34,6 @@ public class Histograma extends JInternalFrame {
 			aux = String.valueOf(i);
 			datos.addValue(this.hist.get(i),"n pixels",aux);
 		}
+		grafica = ChartFactory.createBarChart(this.nombre, "Color", "Pixels", datos, PlotOrientation.VERTICAL, false, true, false);
 	}
 }
