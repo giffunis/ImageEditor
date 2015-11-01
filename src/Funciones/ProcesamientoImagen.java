@@ -152,5 +152,16 @@ public class ProcesamientoImagen {
     	return hist;
     }
     
+    public Vector<Integer> histogramaAcumulativo(){
+    	Vector<Integer> hist = histogramaAbsoluto();
+    	Vector<Integer> salida = new Vector<Integer>(0);
+    	
+    	salida.addElement(hist.get(0));
+    	for(int i = 1; i< hist.size(); i++)
+    		salida.addElement(salida.get(i - 1) + hist.get(i));
+    	
+    	return salida;
+    }
+    
     
 }

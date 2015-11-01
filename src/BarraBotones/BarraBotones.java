@@ -18,6 +18,7 @@ import ImageEditor.Imagenes;
 public class BarraBotones extends JToolBar{
 	
 	static final String HISTO_ABSO = "Histograma Absoluto";
+	static final String HISTO_ACUM = "Histograma Acumulativo";
 	
 	ImageEditor api;
 	JButton btnAbrir;
@@ -31,6 +32,7 @@ public class BarraBotones extends JToolBar{
 		init_btnGuardar();
 		init_btnEscalaGrises();
 		init_btnHistogramaAbsoluto();
+		init_btnHistogramaAcumulativo();
 	}
 	
 //--------------------------------------BTN ABRIR------------------------------------------
@@ -167,6 +169,47 @@ public class BarraBotones extends JToolBar{
 		
 		ChartPanel panel = new ChartPanel(histo.grafica);
 		JInternalFrame ventana = new JInternalFrame(HISTO_ABSO + ": imagen " + (pos + 1),true,true,true,true);
+		ventana.setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
+		ventana.add(panel);
+		ventana.pack();
+		ventana.setVisible(true);
+		this.api.desktopPane.add(ventana);
+		
+	}
+	
+	void init_btnHistogramaAcumulativo(){
+		
+		btnHistogramaAbsoluto = new JButton();
+		btnHistogramaAbsoluto.setName("Histograma acumulativo");
+		btnHistogramaAbsoluto.setToolTipText("Histograma Acumulativo");
+		btnHistogramaAbsoluto.setSelected(false);
+		btnHistogramaAbsoluto.setIcon(new ImageIcon("src/images/EscalaGrises.png"));
+		
+		btnHistogramaAbsoluto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHistogramaAcumulativoActionPerformed(evt);
+            }
+        });
+		add(btnHistogramaAbsoluto);
+	}
+	
+	private void btnHistogramaAcumulativoActionPerformed(java.awt.event.ActionEvent evt) {
+		JInternalFrame internalFrame = api.desktopPane.getSelectedFrame();
+		String aux = internalFrame.getTitle();
+		int pos = 0;
+		for(int i = 0; i < api.imagenes.size(); i++){
+			if(aux == api.imagenes.get(i).internalFrame.getTitle()){
+				pos = i;
+			}
+		}
+		ProcesamientoImagen imagenSalida = new ProcesamientoImagen();
+		imagenSalida.imageActual = api.imagenes.get(pos).imagenReal;
+		Vector<Integer> vectorHist = imagenSalida.histogramaAcumulativo();
+		
+		Histograma histo = new Histograma(this.api,HISTO_ACUM + ": imagen " + (pos + 1),vectorHist);
+		
+		ChartPanel panel = new ChartPanel(histo.grafica);
+		JInternalFrame ventana = new JInternalFrame(HISTO_ACUM + ": imagen " + (pos + 1),true,true,true,true);
 		ventana.setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
 		ventana.add(panel);
 		ventana.pack();
