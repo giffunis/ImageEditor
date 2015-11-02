@@ -42,7 +42,7 @@ public class BarraBotones extends JToolBar{
 		btnAbrir.setName("Abrir");
 		btnAbrir.setToolTipText("Abrir");
 		btnAbrir.setSelected(false);
-		btnAbrir.setIcon(new ImageIcon("src/images/Open.png"));	
+		btnAbrir.setIcon(new ImageIcon("src/Images/open.png"));	
 		btnAbrir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAbrirActionPerformed(evt);
@@ -67,7 +67,7 @@ public class BarraBotones extends JToolBar{
 		btnGuardar.setName("Guardar");
 		btnGuardar.setToolTipText("Guardar");
 		btnGuardar.setSelected(false);
-		btnGuardar.setIcon(new ImageIcon("src/images/save.png"));
+		btnGuardar.setIcon(new ImageIcon("src/Images/save.png"));
 		btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
@@ -101,7 +101,7 @@ public class BarraBotones extends JToolBar{
 		btnEscalaGrises.setName("Escala de grises");
 		btnEscalaGrises.setToolTipText("Escala de grises");
 		btnEscalaGrises.setSelected(false);
-		btnEscalaGrises.setIcon(new ImageIcon("src/images/EscalaGrises.png"));
+		btnEscalaGrises.setIcon(new ImageIcon("src/Images/EscalaGrises.png"));
 		btnEscalaGrises.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEscalaGrisesActionPerformed(evt);
@@ -142,7 +142,7 @@ public class BarraBotones extends JToolBar{
 		btnHistogramaAbsoluto.setName("Histograma absoluto");
 		btnHistogramaAbsoluto.setToolTipText("Histograma Absoluto");
 		btnHistogramaAbsoluto.setSelected(false);
-		btnHistogramaAbsoluto.setIcon(new ImageIcon("src/images/EscalaGrises.png"));
+		btnHistogramaAbsoluto.setIcon(new ImageIcon("src/Images/EscalaGrises.png"));
 		
 		btnHistogramaAbsoluto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,7 +183,7 @@ public class BarraBotones extends JToolBar{
 		btnHistogramaAbsoluto.setName("Histograma acumulativo");
 		btnHistogramaAbsoluto.setToolTipText("Histograma Acumulativo");
 		btnHistogramaAbsoluto.setSelected(false);
-		btnHistogramaAbsoluto.setIcon(new ImageIcon("src/images/EscalaGrises.png"));
+		btnHistogramaAbsoluto.setIcon(new ImageIcon("src/Images/EscalaGrises.png"));
 		
 		btnHistogramaAbsoluto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
