@@ -31,6 +31,7 @@ public class Imagenes {
 		internalFrame = new JInternalFrame("imagen"+(api.imagenes.size() + 1) ,true,true,true,true);
 		internalFrame.setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
 		internalFrame.setLayout(new BorderLayout());
+
 	}
 	
 	void init_panel(){
